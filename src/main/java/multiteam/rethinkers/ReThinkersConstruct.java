@@ -1,7 +1,11 @@
 package multiteam.rethinkers;
 
 import multiteam.multicore_lib.setup.utilities.ItemGroupTool;
+import multiteam.rethinkers.main.Registration;
+import multiteam.rethinkers.main.blocks.ModBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -16,7 +20,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import slimeknights.tconstruct.tools.TinkerTools;
+import slimeknights.tconstruct.tools.TinkerModifiers;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.SlotTypePreset;
 
@@ -26,9 +30,11 @@ public class ReThinkersConstruct
     public static final String MOD_ID = "rethinkers";
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public static final ItemGroupTool RETHINKERS_GENERAL_TAB = new ItemGroupTool("rethinkers_general_tab", () -> new ItemStack(TinkerTools.pickaxe));
+    public static final ItemGroupTool RETHINKERS_GENERAL_TAB = new ItemGroupTool("rethinkers_general_tab", () -> new ItemStack(TinkerModifiers.silkyJewel));
 
     public ReThinkersConstruct() {
+
+        Registration.register();
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
@@ -43,6 +49,8 @@ public class ReThinkersConstruct
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
+
+        RenderTypeLookup.setRenderLayer(ModBlocks.COPPER_CAN_BLOCK.get(), RenderType.cutoutMipped());
 
     }
 

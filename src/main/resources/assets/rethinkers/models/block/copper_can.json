@@ -1,0 +1,32 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "rethinkers:block/copper_can",
+		"1": "#fluid_layer",
+		"particle": "rethinkers:block/copper_can"
+	},
+	"elements": [
+		{
+			"name": "can",
+			"from": [3, 0, 3],
+			"to": [13, 12, 13],
+			"faces": {
+				"north": {"uv": [0, 0, 5, 6], "texture": "#0"},
+				"east": {"uv": [5, 0, 10, 6], "texture": "#0"},
+				"south": {"uv": [0, 0, 5, 6], "texture": "#0"},
+				"west": {"uv": [5, 0, 10, 6], "texture": "#0"},
+				"up": {"uv": [10, 0, 15, 5], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 6, 5, 11], "texture": "#0"}
+			}
+		},
+		{
+			"name": "fluid",
+			"from": [3.1, 11, 3.1],
+			"to": [12.9, 11, 12.9],
+			"faces": {
+				"up": {"uv": [0, 0, 5, 5], "texture": "#1"}
+			}
+		}
+	]
+}
