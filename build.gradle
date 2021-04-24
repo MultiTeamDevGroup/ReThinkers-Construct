@@ -105,13 +105,19 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.1.12'
 
+    //Dev-Env only
     compileOnly fg.deobf("mezz.jei:jei-1.16.5:7.6.4.88:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.16.5:7.6.4.88")
 
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.5-4.0.5.1")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.5-4.0.5.1:api")
+    //Required Dependencies
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.5-${curios_version}")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.5-${curios_version}:api")
 
-    compile fg.deobf("multiteam.multicorelib:multicore_lib:1.16.5-0.0.1.1")
+    compile fg.deobf("multiteam.multicorelib:multicore_lib:1.16.5-${multicorelib_version}")
+
+    compile fg.deobf("slimeknights.mantle:Mantle:1.16.5-${mantle_version}")
+
+    compile fg.deobf("slimeknights.tconstruct:TConstruct:1.16.5-${tinkers_version}")
 
 }
 

@@ -55,15 +55,27 @@ The story begins with my dear friend vik, who just wanted to update Tinkers Cons
     versionRange="[1.16.5,1.17)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.arcadia]]
+[[dependencies.rethinkers]]
     modId="curios"
     mandatory=true
     versionRange="[1.16.5-4.0.5.1,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.arcadia]]
+[[dependencies.rethinkers]]
     modId="multicore_lib"
     mandatory=true
     versionRange="[1.16.5-0.0.1.1,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.rethinkers]]
+    modId="mantle"
+    mandatory=true
+    versionRange="[1.6.91,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.rethinkers]]
+    modId="tconstruct"
+    mandatory=true
+    versionRange="[1.16.5-3.0.3.111,)"
     ordering="AFTER"
     side="BOTH"
