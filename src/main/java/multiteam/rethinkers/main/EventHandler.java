@@ -28,27 +28,22 @@ public class EventHandler {
         BlockState clickedBlock = worldIn.getBlockState(clickedPos);
         PlayerEntity playerEntity = event.getPlayer();
 
-        if(event.getSide().isClient()){
-            //yes.
-        }
-
-        if(!worldIn.isClientSide){
-
-            if(usedItem.getItem() == TinkerSmeltery.copperCan.get() && clickedBlock.getBlock() != Blocks.AIR){
-                if(clickedBlock.getBlockState().isCollisionShapeFullBlock(worldIn.getChunkForCollisions(ChunkPos.getX((long)clickedPos.getX()), ChunkPos.getZ((long)clickedPos.getZ())), clickedPos)){
-
-                    if(event.getFace() == Direction.UP){
-                        worldIn.setBlockAndUpdate(clickedPos.above(), ModBlocks.COPPER_CAN_BLOCK.get().defaultBlockState());
-
-                    }else if(event.getFace() != Direction.DOWN && event.getFace() != Direction.UP){
-                        worldIn.setBlockAndUpdate(clickedPos.relative(event.getFace()), ModBlocks.COPPER_CAN_BLOCK.get().defaultBlockState());
+        if(event.getClass() == PlayerInteractEvent.RightClickItem.class || event.getClass() == PlayerInteractEvent.RightClickBlock.class){
+            if(!worldIn.isClientSide){
+                if(usedItem.getItem() == TinkerSmeltery.copperCan.get() && clickedBlock.getBlock() != Blocks.AIR){
+                    if(clickedBlock.getBlockState().isCollisionShapeFullBlock(worldIn.getChunkForCollisions(ChunkPos.getX((long)clickedPos.getX()), ChunkPos.getZ((long)clickedPos.getZ())), clickedPos)){
+                        if(event.getFace() == Direction.UP){
+                            worldIn.setBlockAndUpdate(clickedPos.above(), ModBlocks.COPPER_CAN_BLOCK.get().defaultBlockState());
+                        }else if(event.getFace() != Direction.DOWN && event.getFace() != Direction.UP){
+                            worldIn.setBlockAndUpdate(clickedPos.relative(event.getFace()), ModBlocks.COPPER_CAN_BLOCK.get().defaultBlockState());
+                        }
                     }
-
-
                 }
             }
 
         }
+
+
     }
 
 }

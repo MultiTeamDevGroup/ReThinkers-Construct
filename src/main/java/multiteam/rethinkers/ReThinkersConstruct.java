@@ -24,6 +24,8 @@ import slimeknights.tconstruct.tools.TinkerModifiers;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.SlotTypePreset;
 
+import java.io.*;
+
 @Mod(ReThinkersConstruct.MOD_ID)
 public class ReThinkersConstruct
 {
@@ -42,6 +44,8 @@ public class ReThinkersConstruct
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         MinecraftForge.EVENT_BUS.register(this);
+
+        copyReTinkersResourcepack();
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -87,5 +91,27 @@ public class ReThinkersConstruct
             // register a new block here
             LOGGER.info("HELLO from Register Block");
         }
+    }
+
+    private static void copyReTinkersResourcepack() {
+        File dir = new File(".", "resourcepacks");
+        File target = new File(dir, "Re-Tinkers");
+
+        try {
+            dir.mkdirs();
+            InputStream in = ReThinkersConstruct.class.getResourceAsStream("/assets/"+ ReThinkersConstruct.MOD_ID +"/re_tinkers.zip");
+            FileOutputStream out = new FileOutputStream(target);
+
+            byte[] buf = new byte[16384];
+            int len = 0;
+            while((len = in.read(buf)) > 0)
+                out.write(buf, 0, len);
+
+            in.close();
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
