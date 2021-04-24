@@ -1,11 +1,11 @@
 package multiteam.rethinkers;
 
+import multiteam.multicore_lib.setup.utilities.ItemGroupTool;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -15,14 +15,15 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.stream.Collectors;
+import slimeknights.tconstruct.tools.TinkerTools;
 
 @Mod(ReThinkersConstruct.MOD_ID)
 public class ReThinkersConstruct
 {
     public static final String MOD_ID = "rethinkers";
     public static final Logger LOGGER = LogManager.getLogger();
+
+    public static final ItemGroupTool RETHINKERS_GENERAL_TAB = new ItemGroupTool("rethinkers_general_tab", () -> new ItemStack(TinkerTools.pickaxe));
 
     public ReThinkersConstruct() {
 
