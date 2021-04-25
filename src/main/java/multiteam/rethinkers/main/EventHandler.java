@@ -2,20 +2,29 @@ package multiteam.rethinkers.main;
 
 import multiteam.rethinkers.ReThinkersConstruct;
 import multiteam.rethinkers.main.blocks.ModBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
+import slimeknights.tconstruct.smeltery.item.CopperCanItem;
+
+import java.util.Objects;
 
 
 @Mod.EventBusSubscriber(modid = ReThinkersConstruct.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
@@ -31,26 +40,33 @@ public class EventHandler {
 
         if(event.getClass() == PlayerInteractEvent.RightClickItem.class || event.getClass() == PlayerInteractEvent.RightClickBlock.class){
                 if(usedItem.getItem() == TinkerSmeltery.copperCan.get() && clickedBlock.getBlock() != Blocks.AIR){
-                    if(clickedBlock.getBlockState().isCollisionShapeFullBlock(worldIn.getChunkForCollisions(ChunkPos.getX((long)clickedPos.getX()), ChunkPos.getZ((long)clickedPos.getZ())), clickedPos)){
-                        BlockPos placepos;
+                    IBlockReader iBlockReader = worldIn.getChunkForCollisions(ChunkPos.getX((long)clickedPos.getX()), ChunkPos.getZ((long)clickedPos.getZ()));
+                    if(clickedBlock.getBlockState().isCollisionShapeFullBlock(iBlockReader, clickedPos)){
+                        BlockPos placepos = null;
                         SoundEvent placeSound = ModBlocks.COPPER_CAN_BLOCK.get().getSoundType(ModBlocks.COPPER_CAN_BLOCK.get().defaultBlockState()).getPlaceSound();
+                        Block copperCan = ModBlocks.COPPER_CAN_BLOCK.get();
+
                         if(event.getFace() == Direction.UP){
                             placepos = clickedPos.above();
-                            if(worldIn.isClientSide){
-                                worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
-                            }else{
-                                worldIn.setBlockAndUpdate(placepos, ModBlocks.COPPER_CAN_BLOCK.get().defaultBlockState());
-                                consumeItemIfIsNotCreative(playerEntity, usedItem);
-                            }
+                            worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
+                            worldIn.setBlockAndUpdate(placepos, copperCan.defaultBlockState());
+                            consumeItemIfIsNotCreative(playerEntity, usedItem);
                         }else if(event.getFace() != Direction.DOWN && event.getFace() != Direction.UP){
                             placepos = clickedPos.relative(event.getFace());
-                            if(worldIn.isClientSide){
-                                worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
-                            }else{
-                                worldIn.setBlockAndUpdate(placepos, ModBlocks.COPPER_CAN_BLOCK.get().defaultBlockState());
-                                consumeItemIfIsNotCreative(playerEntity, usedItem);
-                            }
+                            worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
+                            worldIn.setBlockAndUpdate(placepos, copperCan.defaultBlockState());
+                            consumeItemIfIsNotCreative(playerEntity, usedItem);
                         }
+
+                        if(placepos != null){
+                            TileEntity copperCanTe = worldIn.getBlockEntity(placepos);
+                            CompoundNBT nbt = copperCanTe.getTileData();
+                            Fluid fluid = CopperCanItem.getFluid(usedItem);
+                            String string = ((ResourceLocation) Objects.requireNonNull(fluid.getRegistryName())).toString();
+                            nbt.putString("ContainedFluid", string);
+                        }
+
+
                     }
                 }
 

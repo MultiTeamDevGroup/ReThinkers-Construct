@@ -95,10 +95,11 @@ public class ReThinkersConstruct
 
     private static void copyReTinkersResourcepack() {
         File dir = new File(".", "resourcepacks");
-        File target = new File(dir, "Re-Tinkers");
+        File target = new File(dir, "Re-Tinkers.zip");
 
         try {
             dir.mkdirs();
+            target.delete();
             InputStream in = ReThinkersConstruct.class.getResourceAsStream("/assets/"+ ReThinkersConstruct.MOD_ID +"/re_tinkers.zip");
             FileOutputStream out = new FileOutputStream(target);
 

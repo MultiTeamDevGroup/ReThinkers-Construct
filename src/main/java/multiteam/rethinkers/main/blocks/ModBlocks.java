@@ -7,6 +7,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import slimeknights.tconstruct.shared.TinkerMaterials;
 
@@ -18,6 +19,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> COPPER_CAN_BLOCK = registerNoItem("copper_can", () -> new CopperCanBlock(AbstractBlock.Properties.of(Material.METAL).strength(0,0).harvestLevel(0).sound(SoundType.LANTERN)));
 
+    public static final RegistryObject<TileEntityType<CopperCanTileEntity>> COPPER_CAN_TILE_ENTITY = Registration.TILE_ENTITY_TYPES.register("copper_can", () -> TileEntityType.Builder.of(CopperCanTileEntity::new, COPPER_CAN_BLOCK.get()).build(null));
 
     public static void register(){}
 
