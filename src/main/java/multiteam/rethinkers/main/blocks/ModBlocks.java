@@ -18,11 +18,11 @@ public class ModBlocks {
     //public static Material TinkerCopperMaterial = TinkerMaterials.copper.get().defaultBlockState().getMaterial();
 
     public static final RegistryObject<Block> COPPER_CAN_BLOCK = registerNoItem("copper_can", () -> new CopperCanBlock(AbstractBlock.Properties.of(Material.METAL).strength(0,0).harvestLevel(0).sound(SoundType.LANTERN)));
-
     public static final RegistryObject<TileEntityType<CopperCanTileEntity>> COPPER_CAN_TILE_ENTITY = Registration.TILE_ENTITY_TYPES.register("copper_can", () -> TileEntityType.Builder.of(CopperCanTileEntity::new, COPPER_CAN_BLOCK.get()).build(null));
 
-    public static void register(){}
 
+
+    public static void register(){}
 
     private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> block){
         return Registration.BLOCKS.register(name, block);

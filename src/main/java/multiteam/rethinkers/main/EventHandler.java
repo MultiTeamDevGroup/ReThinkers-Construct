@@ -45,17 +45,20 @@ public class EventHandler {
                         BlockPos placepos = null;
                         SoundEvent placeSound = ModBlocks.COPPER_CAN_BLOCK.get().getSoundType(ModBlocks.COPPER_CAN_BLOCK.get().defaultBlockState()).getPlaceSound();
                         Block copperCan = ModBlocks.COPPER_CAN_BLOCK.get();
-
                         if(event.getFace() == Direction.UP){
                             placepos = clickedPos.above();
-                            worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
-                            worldIn.setBlockAndUpdate(placepos, copperCan.defaultBlockState());
-                            consumeItemIfIsNotCreative(playerEntity, usedItem);
+                            if(worldIn.getBlockState(placepos) == Blocks.AIR.defaultBlockState()){
+                                worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
+                                worldIn.setBlockAndUpdate(placepos, copperCan.defaultBlockState());
+                                consumeItemIfIsNotCreative(playerEntity, usedItem);
+                            }
                         }else if(event.getFace() != Direction.DOWN && event.getFace() != Direction.UP){
                             placepos = clickedPos.relative(event.getFace());
-                            worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
-                            worldIn.setBlockAndUpdate(placepos, copperCan.defaultBlockState());
-                            consumeItemIfIsNotCreative(playerEntity, usedItem);
+                            if(worldIn.getBlockState(placepos) == Blocks.AIR.defaultBlockState()){
+                                worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
+                                worldIn.setBlockAndUpdate(placepos, copperCan.defaultBlockState());
+                                consumeItemIfIsNotCreative(playerEntity, usedItem);
+                            }
                         }
 
                         if(placepos != null){

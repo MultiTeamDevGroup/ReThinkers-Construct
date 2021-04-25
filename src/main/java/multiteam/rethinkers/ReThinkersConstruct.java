@@ -2,6 +2,7 @@ package multiteam.rethinkers;
 
 import multiteam.multicore_lib.setup.utilities.ItemGroupTool;
 import multiteam.rethinkers.main.Registration;
+import multiteam.rethinkers.main.blocks.CopperCanFluidRenderer;
 import multiteam.rethinkers.main.blocks.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
@@ -55,7 +56,7 @@ public class ReThinkersConstruct
     private void doClientStuff(final FMLClientSetupEvent event) {
 
         RenderTypeLookup.setRenderLayer(ModBlocks.COPPER_CAN_BLOCK.get(), RenderType.cutoutMipped());
-
+        CopperCanFluidRenderer.register();
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

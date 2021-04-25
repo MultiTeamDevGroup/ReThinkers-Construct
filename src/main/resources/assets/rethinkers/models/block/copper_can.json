@@ -3,21 +3,73 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "rethinkers:block/copper_can",
-		"fluid_layer": "rethinkers:empty",
-		"particle": "rethinkers:block/copper_can"
+		"particle": "rethinkers:block/copper_can",
+		"fluid_layer": "rethinkers:empty"
 	},
 	"elements": [
 		{
 			"name": "can",
-			"from": [3, 0, 3],
+			"from": [12, 0, 3],
 			"to": [13, 12, 13],
 			"faces": {
-				"north": {"uv": [0, 0, 5, 6], "texture": "#0"},
+				"north": {"uv": [0, 0, 0.5, 6], "texture": "#0"},
 				"east": {"uv": [5, 0, 10, 6], "texture": "#0"},
-				"south": {"uv": [0, 0, 5, 6], "texture": "#0"},
+				"south": {"uv": [4.5, 0, 5, 6], "texture": "#0"},
 				"west": {"uv": [5, 0, 10, 6], "texture": "#0"},
-				"up": {"uv": [10, 0, 15, 5], "rotation": 90, "texture": "#0"},
-				"down": {"uv": [0, 6, 5, 11], "texture": "#0"}
+				"up": {"uv": [10, 0, 15, 0.5], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 6, 0.5, 11], "texture": "#0"}
+			}
+		},
+		{
+			"name": "can",
+			"from": [3, 0, 3],
+			"to": [4, 12, 13],
+			"faces": {
+				"north": {"uv": [4.5, 0, 5, 6], "texture": "#0"},
+				"east": {"uv": [5, 0, 10, 6], "texture": "#0"},
+				"south": {"uv": [0, 0, 0.5, 6], "texture": "#0"},
+				"west": {"uv": [5, 0, 10, 6], "texture": "#0"},
+				"up": {"uv": [10, 4.5, 15, 5], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [4.5, 6, 5, 11], "texture": "#0"}
+			}
+		},
+		{
+			"name": "can",
+			"from": [4, 0, 3],
+			"to": [12, 12, 4],
+			"faces": {
+				"north": {"uv": [0.5, 0, 4.5, 6], "texture": "#0"},
+				"south": {"uv": [0.5, 0, 4.5, 6], "texture": "#0"},
+				"up": {"uv": [10, 0.5, 10.5, 4.5], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0.5, 6, 4.5, 6.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "can",
+			"from": [4, 0, 4],
+			"to": [12, 1, 12],
+			"faces": {
+				"up": {"uv": [0.5, 6.5, 4.5, 10.5], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0.5, 6.5, 4.5, 10.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "can",
+			"from": [4, 12, 4],
+			"to": [12, 12, 12],
+			"faces": {
+				"up": {"uv": [10.5, 0.5, 14.5, 4.5], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "can",
+			"from": [4, 0, 12],
+			"to": [12, 12, 13],
+			"faces": {
+				"north": {"uv": [0.5, 0, 4.5, 6], "texture": "#0"},
+				"south": {"uv": [0.5, 0, 4.5, 6], "texture": "#0"},
+				"up": {"uv": [14.5, 0.5, 15, 4.5], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0.5, 10.5, 4.5, 11], "texture": "#0"}
 			}
 		},
 		{
