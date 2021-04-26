@@ -16,7 +16,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         //Blockitems
-        //this might work as replacement for the name ModBlocks.SILKY_CLOTH_BLOCK.getId().toString()
+        //this might work as replacement for the name: ModBlocks.SILKY_CLOTH_BLOCK.getId().toString()
         withExistingParent("silky_cloth_block", modLoc("block/silky_cloth_block"));
 
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));

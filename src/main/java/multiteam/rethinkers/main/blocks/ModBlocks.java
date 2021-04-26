@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
@@ -19,10 +20,10 @@ public class ModBlocks {
 
     //public static Material TinkerCopperMaterial = TinkerMaterials.copper.get().defaultBlockState().getMaterial();
 
-    public static final RegistryObject<Block> COPPER_CAN_BLOCK = registerNoItem("copper_can", () -> new CopperCanBlock(AbstractBlock.Properties.of(Material.METAL).strength(0,0).harvestLevel(0).sound(SoundType.LANTERN)));
+    public static final RegistryObject<Block> COPPER_CAN_BLOCK = registerNoItem("copper_can", () -> new CopperCanBlock(AbstractBlock.Properties.of(Material.METAL, MaterialColor.COLOR_BROWN).strength(0,0).harvestLevel(0).sound(SoundType.LANTERN)));
     public static final RegistryObject<TileEntityType<CopperCanTileEntity>> COPPER_CAN_TILE_ENTITY = Registration.TILE_ENTITY_TYPES.register("copper_can", () -> TileEntityType.Builder.of(CopperCanTileEntity::new, COPPER_CAN_BLOCK.get()).build(null));
-
-    public static final RegistryObject<Block> SILKY_CLOTH_BLOCK = registerWithItem("silky_cloth_block", () -> new Block(AbstractBlock.Properties.of(Material.WOOL)), new Item.Properties().tab(ReThinkersConstruct.RETHINKERS_GENERAL_TAB));
+                                                                                                                                                                                  //Hardness and resistance
+    public static final RegistryObject<Block> SILKY_CLOTH_BLOCK = registerWithItem("silky_cloth_block", () -> new Block(AbstractBlock.Properties.of(Material.WOOL, MaterialColor.GOLD).strength(0.8f, 0.8f).sound(SoundType.WOOL)), new Item.Properties().tab(ReThinkersConstruct.RETHINKERS_GENERAL_TAB));
 
 
     public static void register(){}
