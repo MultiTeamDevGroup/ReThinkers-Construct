@@ -31,9 +31,12 @@ logoFile="rethinkers.png" #optional
 # A text field displayed in the mod UI
 credits="Made by MultiTeam" #optional
 # A text field displayed in the mod UI
-authors="LazTheArtist [Code - Textures & Models]" #optional
+authors="LazTheArtist [Code - Textures & Models]; Vik [Textures]" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
+Re-Think the ideas, Re-Construct the past, ReLive the greatness.
+
+
 The story begins with my dear friend vik, who just wanted to update Tinkers Construct's textures. he started a server with several other including me, about this retexturing. soon it became official, and the devs of Thinkers joined. after a while, RCXcrafter, the original artist of tinkers joined, which vik did not like. im not going to tell or create drama stories, im only here to create an addon for Tinkers, with new textures and content.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
