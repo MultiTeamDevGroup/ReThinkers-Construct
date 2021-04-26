@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "tconstruct:silky_cloth"
+        }
+    },
+    "result": {
+        "item": "rethinkers:silky_cloth_block",
+        "count": 1
+    }
+}

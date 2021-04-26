@@ -1,8 +1,10 @@
 package multiteam.rethinkers.main.blocks;
 
+import multiteam.rethinkers.ReThinkersConstruct;
 import multiteam.rethinkers.main.Registration;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
@@ -20,6 +22,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> COPPER_CAN_BLOCK = registerNoItem("copper_can", () -> new CopperCanBlock(AbstractBlock.Properties.of(Material.METAL).strength(0,0).harvestLevel(0).sound(SoundType.LANTERN)));
     public static final RegistryObject<TileEntityType<CopperCanTileEntity>> COPPER_CAN_TILE_ENTITY = Registration.TILE_ENTITY_TYPES.register("copper_can", () -> TileEntityType.Builder.of(CopperCanTileEntity::new, COPPER_CAN_BLOCK.get()).build(null));
 
+    public static final RegistryObject<Block> SILKY_CLOTH_BLOCK = registerWithItem("silky_cloth_block", () -> new Block(AbstractBlock.Properties.of(Material.WOOL)), new Item.Properties().tab(ReThinkersConstruct.RETHINKERS_GENERAL_TAB));
 
 
     public static void register(){}
