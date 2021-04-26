@@ -67,7 +67,7 @@ The story begins with my dear friend vik, who just wanted to update Tinkers Cons
 [[dependencies.rethinkers]]
     modId="multicore_lib"
     mandatory=true
-    versionRange="[1.16.5-0.0.1.1,)"
+    versionRange="[1.16.5-0.0.1.4,)"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.rethinkers]]

@@ -1,8 +1,10 @@
 package multiteam.rethinkers.main.blocks;
 
+import multiteam.rethinkers.ReThinkersConstruct;
+import multiteam.multicore_lib.setup.utilities.MathF;
+
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import multiteam.rethinkers.ReThinkersConstruct;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.texture.AtlasTexture;
@@ -13,7 +15,6 @@ import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.vector.Vector3f;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import slimeknights.mantle.client.render.FluidRenderer;
 
@@ -40,29 +41,10 @@ public class CopperCanFluidRenderer extends TileEntityRenderer<CopperCanTileEnti
 
         matrixStack.pushPose();
 
-        //This is how you get blocklight from the world on clientside :D how nice
-        //Minecraft.getInstance().level.getBlockState(copperCanTileEntity.getBlockPos()).getLightValue(Minecraft.getInstance().level,copperCanTileEntity.getBlockPos())
-
-        FluidRenderer.putTexturedQuad(builder, matrixStack.last().pose(), fluid_sprite, new Vector3f(BlockToFloatScale(4.0f), BlockToFloatScale(10.0f), BlockToFloatScale(4.0f)), new Vector3f(BlockToFloatScale(12.0f), BlockToFloatScale(10.0f), BlockToFloatScale(12.0f)), Direction.UP , fluidToRender.getAttributes().getColor() , 150, 0, false);
+        FluidRenderer.putTexturedQuad(builder, matrixStack.last().pose(), fluid_sprite, MathF.BlockToFloatScaleVector3f(4.0f, 10.0f, 4.0f), MathF.BlockToFloatScaleVector3f(12.0f, 10.0f, 12.0f), Direction.UP , fluidToRender.getAttributes().getColor() , 150, 0, false);
 
         matrixStack.popPose();
-        //TankModel.BakedModel<?> model =
-        //RenderUtils.renderFluidTank(matrixStack, iRenderTypeBuffer, fluidToRender, FluidTankAnimated tank, int light, float partialTicks, boolean flipGas)
-        //BakedModel<?> model = (TankModel.BakedModel) ModelHelper.getBakedModel(copperCanTileEntity.getBlockState(), TankModel.BakedModel.class);
-        //RenderUtils.renderFluidTank(matrixStack, buffer, model.getFluid(), ((CopperCanTileEntity)copperCanTileEntity).getTank(), combinedLightIn, partialTicks, true);
 
-    }
-
-    //Dunno why but the MathF class of MultiCoreLib doesnt work, so until it works:
-    public float BlockToFloatScale(float value){
-        return rescaleValues(0.0f, 16.0f, 0.0f, 1.0f, value);
-    }
-
-    public float rescaleValues(float minFrom, float maxFrom, float minTo, float maxTo, float valueToScale){
-        float OldRange = (maxFrom - minFrom);
-        float NewRange = (maxTo - minTo);
-
-        return (((valueToScale - minFrom) * NewRange) / OldRange) + minTo;
     }
 
     public static void register(){
