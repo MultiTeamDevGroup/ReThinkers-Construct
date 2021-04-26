@@ -1,7 +1,6 @@
 package multiteam.rethinkers.main.blocks;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.nbt.CompoundNBT;
@@ -9,7 +8,6 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;

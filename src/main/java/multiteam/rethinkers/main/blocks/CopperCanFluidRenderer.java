@@ -5,22 +5,17 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import multiteam.rethinkers.ReThinkersConstruct;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.ItemRenderer;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.model.IBakedModel;
-import net.minecraft.client.renderer.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.vector.Quaternion;
-import net.minecraftforge.fluids.FluidStack;
+import net.minecraft.util.math.vector.Vector3f;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import slimeknights.mantle.client.render.FluidRenderer;
 
 public class CopperCanFluidRenderer extends TileEntityRenderer<CopperCanTileEntity> {
 
@@ -31,7 +26,7 @@ public class CopperCanFluidRenderer extends TileEntityRenderer<CopperCanTileEnti
     }
 
     @Override
-    public void render(CopperCanTileEntity copperCanTileEntity, float partialTicks, MatrixStack matrixStack, IRenderTypeBuffer iRenderTypeBuffer, int combinedLight, int combinedOverlay) {
+    public void render(CopperCanTileEntity copperCanTileEntity, float partialTicks, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
         Fluid fluidToRender = CopperCanTileEntity.getContainedFluid(copperCanTileEntity.getTileData());
         TextureAtlasSprite fluid_sprite;
         if(fluidToRender == Fluids.EMPTY){
@@ -41,31 +36,33 @@ public class CopperCanFluidRenderer extends TileEntityRenderer<CopperCanTileEnti
             fluid_sprite = Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(stillLocation);
         }
 
-        IVertexBuilder builder = iRenderTypeBuffer.getBuffer(RenderType.translucent());
+        IVertexBuilder builder = buffer.getBuffer(FluidRenderer.RENDER_TYPE);
 
         matrixStack.pushPose();
 
-        matrixStack.translate(.5, .5, .5);
-        matrixStack.mulPose(Quaternion.ONE);
-        matrixStack.scale(1, 1, 1);
-        matrixStack.translate(-.5, -.5, -.5);
+        //This is how you get blocklight from the world on clientside :D how nice
+        //Minecraft.getInstance().level.getBlockState(copperCanTileEntity.getBlockPos()).getLightValue(Minecraft.getInstance().level,copperCanTileEntity.getBlockPos())
 
-        add(builder, matrixStack, 0, 0.5f, 0, fluid_sprite.getU0(), fluid_sprite.getV0());
-        add(builder, matrixStack, 1, 0.5f, 0, fluid_sprite.getU0(), fluid_sprite.getV0());
-        add(builder, matrixStack, 1, 0.5f, 1, fluid_sprite.getU0(), fluid_sprite.getV0());
-        add(builder, matrixStack, 0, 0.5f, 1, fluid_sprite.getU0(), fluid_sprite.getV0());
+        FluidRenderer.putTexturedQuad(builder, matrixStack.last().pose(), fluid_sprite, new Vector3f(BlockToFloatScale(4.0f), BlockToFloatScale(10.0f), BlockToFloatScale(4.0f)), new Vector3f(BlockToFloatScale(12.0f), BlockToFloatScale(10.0f), BlockToFloatScale(12.0f)), Direction.UP , fluidToRender.getAttributes().getColor() , 150, 0, false);
 
         matrixStack.popPose();
+        //TankModel.BakedModel<?> model =
+        //RenderUtils.renderFluidTank(matrixStack, iRenderTypeBuffer, fluidToRender, FluidTankAnimated tank, int light, float partialTicks, boolean flipGas)
+        //BakedModel<?> model = (TankModel.BakedModel) ModelHelper.getBakedModel(copperCanTileEntity.getBlockState(), TankModel.BakedModel.class);
+        //RenderUtils.renderFluidTank(matrixStack, buffer, model.getFluid(), ((CopperCanTileEntity)copperCanTileEntity).getTank(), combinedLightIn, partialTicks, true);
 
     }
 
-    private void add(IVertexBuilder renderer, MatrixStack stack, float x, float y, float z, float u, float v){
-        renderer.normal(stack.last().normal(), x, y, z)
-                .color(1.0f, 1.0f, 1.0f, 1.0f)
-                .uv(u, v)
-                .uv2(0, 240)
-                .normal(1,0,0)
-                .endVertex();
+    //Dunno why but the MathF class of MultiCoreLib doesnt work, so until it works:
+    public float BlockToFloatScale(float value){
+        return rescaleValues(0.0f, 16.0f, 0.0f, 1.0f, value);
+    }
+
+    public float rescaleValues(float minFrom, float maxFrom, float minTo, float maxTo, float valueToScale){
+        float OldRange = (maxFrom - minFrom);
+        float NewRange = (maxTo - minTo);
+
+        return (((valueToScale - minFrom) * NewRange) / OldRange) + minTo;
     }
 
     public static void register(){
