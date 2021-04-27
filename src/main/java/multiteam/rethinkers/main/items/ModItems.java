@@ -8,7 +8,7 @@ import net.minecraftforge.fml.RegistryObject;
 
 public class ModItems {
 
-    public static final RegistryObject<Item> ESSENCE_BERRY = Registration.ITEMS.register("essence_berry", () -> new Item(new Item.Properties().tab(ReThinkersConstruct.RETHINKERS_GENERAL_TAB).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> ESSENCE_BERRY = Registration.ITEMS.register("essence_berry", () -> new EssenceBerryItem(new Item.Properties().tab(ReThinkersConstruct.RETHINKERS_GENERAL_TAB).rarity(Rarity.UNCOMMON)));
 
 
     public static void register() {

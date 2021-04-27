@@ -19,7 +19,7 @@ import java.util.function.Supplier;
 
 public class ModBlocks {
 
-    public static final Material MATERIAL_OREBERRY = (new Material(MaterialColor.STONE, false, false, false, false, false, false, Material.CACTUS.getPushReaction()));
+    public static final Material MATERIAL_OREBERRY = (new Material(MaterialColor.STONE, false, false, false, true, false, false, Material.CACTUS.getPushReaction()));
 
     //public static Material TinkerCopperMaterial = TinkerMaterials.copper.get().defaultBlockState().getMaterial();
 
@@ -29,7 +29,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> SILKY_CLOTH_BLOCK = registerWithItem("silky_cloth_block", () -> new Block(AbstractBlock.Properties.of(Material.WOOL, MaterialColor.GOLD).strength(0.8f, 0.8f).sound(SoundType.WOOL)), new Item.Properties().tab(ReThinkersConstruct.RETHINKERS_GENERAL_TAB));
 
 
-    public static final RegistryObject<Block> ESSENCE_BERRY_BUSH = registerWithItem("essence_berry_bush", () -> new OreberryBushBlock(AbstractBlock.Properties.of(MATERIAL_OREBERRY).sound(SoundType.GRASS).strength(2.0f, 6.0f)), new Item.Properties().tab(ReThinkersConstruct.RETHINKERS_GENERAL_TAB).rarity(Rarity.UNCOMMON));
+    public static final RegistryObject<Block> ESSENCE_BERRY_BUSH = registerWithItem("essence_berry_bush", () -> new OreberryBushBlock(AbstractBlock.Properties.of(MATERIAL_OREBERRY).sound(SoundType.GRASS).strength(2.0f, 6.0f).dynamicShape()), new Item.Properties().tab(ReThinkersConstruct.RETHINKERS_GENERAL_TAB).rarity(Rarity.UNCOMMON));
 
     public static void register(){}
 
