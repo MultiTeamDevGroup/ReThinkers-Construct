@@ -18,11 +18,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         //Blockitems
         //this might work as replacement for the name: ModBlocks.SILKY_CLOTH_BLOCK.getId().toString()
         withExistingParent("silky_cloth_block", modLoc("block/silky_cloth_block"));
+        withExistingParent("essence_berry_bush", modLoc("block/essence_berrybush_stage3"));
 
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
         //Regular Items
-        //builder(itemGenerated, "angel_wings");
+        builder(itemGenerated, "essence_berry");
     }
 
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {

@@ -39,39 +39,40 @@ public class EventHandler {
         PlayerEntity playerEntity = event.getPlayer();
 
         if(event.getClass() == PlayerInteractEvent.RightClickItem.class || event.getClass() == PlayerInteractEvent.RightClickBlock.class){
-                if(usedItem.getItem() == TinkerSmeltery.copperCan.get() && clickedBlock.getBlock() != Blocks.AIR){
-                    IBlockReader iBlockReader = worldIn.getChunkForCollisions(ChunkPos.getX((long)clickedPos.getX()), ChunkPos.getZ((long)clickedPos.getZ()));
-                    if(clickedBlock.getBlockState().isCollisionShapeFullBlock(iBlockReader, clickedPos)){
-                        BlockPos placepos = null;
-                        SoundEvent placeSound = ModBlocks.COPPER_CAN_BLOCK.get().getSoundType(ModBlocks.COPPER_CAN_BLOCK.get().defaultBlockState()).getPlaceSound();
-                        Block copperCan = ModBlocks.COPPER_CAN_BLOCK.get();
-                        if(event.getFace() == Direction.UP){
-                            placepos = clickedPos.above();
-                            if(worldIn.getBlockState(placepos) == Blocks.AIR.defaultBlockState()){
-                                worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
-                                worldIn.setBlockAndUpdate(placepos, copperCan.defaultBlockState());
-                                consumeItemIfIsNotCreative(playerEntity, usedItem);
-                            }
-                        }else if(event.getFace() != Direction.DOWN && event.getFace() != Direction.UP){
-                            placepos = clickedPos.relative(event.getFace());
-                            if(worldIn.getBlockState(placepos) == Blocks.AIR.defaultBlockState()){
-                                worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
-                                worldIn.setBlockAndUpdate(placepos, copperCan.defaultBlockState());
-                                consumeItemIfIsNotCreative(playerEntity, usedItem);
-                            }
+            //Placing Copper Cans
+            if(usedItem.getItem() == TinkerSmeltery.copperCan.get() && clickedBlock.getBlock() != Blocks.AIR){
+                IBlockReader iBlockReader = worldIn.getChunkForCollisions(ChunkPos.getX((long)clickedPos.getX()), ChunkPos.getZ((long)clickedPos.getZ()));
+                if(clickedBlock.getBlockState().isCollisionShapeFullBlock(iBlockReader, clickedPos)){
+                    BlockPos placepos = null;
+                    SoundEvent placeSound = ModBlocks.COPPER_CAN_BLOCK.get().getSoundType(ModBlocks.COPPER_CAN_BLOCK.get().defaultBlockState()).getPlaceSound();
+                    Block copperCan = ModBlocks.COPPER_CAN_BLOCK.get();
+                    if(event.getFace() == Direction.UP){
+                        placepos = clickedPos.above();
+                        if(worldIn.getBlockState(placepos) == Blocks.AIR.defaultBlockState()){
+                            worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
+                            worldIn.setBlockAndUpdate(placepos, copperCan.defaultBlockState());
+                            consumeItemIfIsNotCreative(playerEntity, usedItem);
                         }
-
-                        if(placepos != null){
-                            TileEntity copperCanTe = worldIn.getBlockEntity(placepos);
-                            CompoundNBT nbt = copperCanTe.getTileData();
-                            Fluid fluid = CopperCanItem.getFluid(usedItem);
-                            String string = ((ResourceLocation) Objects.requireNonNull(fluid.getRegistryName())).toString();
-                            nbt.putString("ContainedFluid", string);
+                    }else if(event.getFace() != Direction.DOWN && event.getFace() != Direction.UP){
+                        placepos = clickedPos.relative(event.getFace());
+                        if(worldIn.getBlockState(placepos) == Blocks.AIR.defaultBlockState()){
+                            worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
+                            worldIn.setBlockAndUpdate(placepos, copperCan.defaultBlockState());
+                            consumeItemIfIsNotCreative(playerEntity, usedItem);
                         }
-
-
                     }
+
+                    if(placepos != null){
+                        TileEntity copperCanTe = worldIn.getBlockEntity(placepos);
+                        CompoundNBT nbt = copperCanTe.getTileData();
+                        Fluid fluid = CopperCanItem.getFluid(usedItem);
+                        String string = ((ResourceLocation) Objects.requireNonNull(fluid.getRegistryName())).toString();
+                        nbt.putString("ContainedFluid", string);
+                    }
+
+
                 }
+            }
 
         }
 

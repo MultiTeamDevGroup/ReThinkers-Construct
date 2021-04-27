@@ -10,6 +10,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.Rarity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import slimeknights.tconstruct.shared.TinkerMaterials;
@@ -18,6 +19,8 @@ import java.util.function.Supplier;
 
 public class ModBlocks {
 
+    public static final Material MATERIAL_OREBERRY = (new Material(MaterialColor.STONE, false, false, false, false, false, false, Material.CACTUS.getPushReaction()));
+
     //public static Material TinkerCopperMaterial = TinkerMaterials.copper.get().defaultBlockState().getMaterial();
 
     public static final RegistryObject<Block> COPPER_CAN_BLOCK = registerNoItem("copper_can", () -> new CopperCanBlock(AbstractBlock.Properties.of(Material.METAL, MaterialColor.COLOR_BROWN).strength(0,0).harvestLevel(0).sound(SoundType.LANTERN)));
@@ -25,6 +28,8 @@ public class ModBlocks {
                                                                                                                                                                                   //Hardness and resistance
     public static final RegistryObject<Block> SILKY_CLOTH_BLOCK = registerWithItem("silky_cloth_block", () -> new Block(AbstractBlock.Properties.of(Material.WOOL, MaterialColor.GOLD).strength(0.8f, 0.8f).sound(SoundType.WOOL)), new Item.Properties().tab(ReThinkersConstruct.RETHINKERS_GENERAL_TAB));
 
+
+    public static final RegistryObject<Block> ESSENCE_BERRY_BUSH = registerWithItem("essence_berry_bush", () -> new OreberryBushBlock(AbstractBlock.Properties.of(MATERIAL_OREBERRY).sound(SoundType.GRASS).strength(2.0f, 6.0f)), new Item.Properties().tab(ReThinkersConstruct.RETHINKERS_GENERAL_TAB).rarity(Rarity.UNCOMMON));
 
     public static void register(){}
 

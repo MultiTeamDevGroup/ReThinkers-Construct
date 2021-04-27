@@ -1,7 +1,10 @@
 {
     "MOD BLOCKS": "BLOCKS",
   "block.rethinkers.silky_cloth_block": "Silky Cloth Block",
+  "block.rethinkers.essence_berry_bush": "Essence Berry Bush",
 
+  "MOD ITEMS": "ITEMS",
+  "item.rethinkers.essence_berry": "Essence Berry",
 
     "MOD MISC": "MISC",
   "itemGroup.rethinkers_general_tab": "ReThinkers' Construct"

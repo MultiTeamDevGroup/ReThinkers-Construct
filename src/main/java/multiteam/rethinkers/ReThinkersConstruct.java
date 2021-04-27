@@ -56,6 +56,7 @@ public class ReThinkersConstruct
     private void doClientStuff(final FMLClientSetupEvent event) {
 
         RenderTypeLookup.setRenderLayer(ModBlocks.COPPER_CAN_BLOCK.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(ModBlocks.ESSENCE_BERRY_BUSH.get(), RenderType.cutoutMipped());
         CopperCanFluidRenderer.register();
     }
 

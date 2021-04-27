@@ -2,6 +2,7 @@ package multiteam.rethinkers.main;
 
 import multiteam.rethinkers.ReThinkersConstruct;
 import multiteam.rethinkers.main.blocks.ModBlocks;
+import multiteam.rethinkers.main.items.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
@@ -24,5 +25,6 @@ public class Registration {
         ITEMS.register(modeEventBus);
 
         ModBlocks.register();
+        ModItems.register();
     }
 }
