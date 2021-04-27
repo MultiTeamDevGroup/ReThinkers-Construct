@@ -2,6 +2,7 @@ package multiteam.rethinkers.main.blocks;
 
 import multiteam.rethinkers.main.items.ModItems;
 import net.minecraft.block.*;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.IntegerProperty;
@@ -12,12 +13,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
@@ -26,6 +25,8 @@ public class OreberryBushBlock extends BushBlock implements IGrowable {
     private static final VoxelShape SHAPE_STAGE_SMALL = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
     private static final VoxelShape SHAPE_STAGE_MEDIUM = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
     private static final VoxelShape SHAPE_STAGE_MATURE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+    private static final VoxelShape SHAPE_ALMOSTFULL = Block.box(1.0D, 1.0D, 1.0D, 15.0D, 15.0D, 15.0D);
+    DamageSource BERRY_DAMAGE_SOURCE = new DamageSource("oreberry");
 
     public OreberryBushBlock(AbstractBlock.Properties properties) {
         super(properties);
@@ -57,8 +58,13 @@ public class OreberryBushBlock extends BushBlock implements IGrowable {
     }
 
     @Override
+    public VoxelShape getCollisionShape(BlockState blockState, IBlockReader iBlockReader, BlockPos blockPos, ISelectionContext context) {
+        return SHAPE_ALMOSTFULL;
+    }
+
+    @Override
     public VoxelShape getOcclusionShape(BlockState blockState, IBlockReader iBlockReader, BlockPos blockPos) {
-        return SHAPE_STAGE_MEDIUM;
+        return SHAPE_ALMOSTFULL;
     }
 
     @Override
@@ -131,4 +137,11 @@ public class OreberryBushBlock extends BushBlock implements IGrowable {
 
     @Override
     public void performBonemeal(ServerWorld serverWorldIn, Random random, BlockPos pos, BlockState state) { return; }
+
+    @Override
+    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entity) {
+        entity.hurt(BERRY_DAMAGE_SOURCE, 1.0F);
+    }
+
+
 }

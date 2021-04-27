@@ -1,14 +1,18 @@
 {
-    "MOD BLOCKS": "BLOCKS",
+  "MOD BLOCKS": "BLOCKS",
   "block.rethinkers.silky_cloth_block": "Silky Cloth Block",
   "block.rethinkers.essence_berry_bush": "Essence Berry Bush",
 
+  "MOD FLUIDS": "FLUIDS",
+  "fluid.rethinkers.liquid_essence": "Liquid Essence",
+
   "MOD ITEMS": "ITEMS",
   "item.rethinkers.essence_berry": "Essence Berry",
+  "item.rethinkers.liquid_essence_bucket": "Liquid Essence Bucket",
 
   "MOD TOOLTIPS": "TOOLTIPS",
   "tooltip.rethinkers.essence_berry_item": "Tastes Like Creeper",
 
-    "MOD MISC": "MISC",
+  "MOD MISC": "MISC",
   "itemGroup.rethinkers_general_tab": "ReThinkers' Construct"
 }

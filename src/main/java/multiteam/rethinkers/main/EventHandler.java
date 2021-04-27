@@ -7,6 +7,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
@@ -48,26 +49,32 @@ public class EventHandler {
                     Block copperCan = ModBlocks.COPPER_CAN_BLOCK.get();
                     if(event.getFace() == Direction.UP){
                         placepos = clickedPos.above();
-                        if(worldIn.getBlockState(placepos) == Blocks.AIR.defaultBlockState()){
+                        if(worldIn.getBlockState(placepos) == Blocks.AIR.defaultBlockState()  && worldIn.getFluidState(placepos).isEmpty()){
                             worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
                             worldIn.setBlockAndUpdate(placepos, copperCan.defaultBlockState());
                             consumeItemIfIsNotCreative(playerEntity, usedItem);
+                        }else{
+                            placepos = null;
                         }
                     }else if(event.getFace() != Direction.DOWN && event.getFace() != Direction.UP){
                         placepos = clickedPos.relative(event.getFace());
-                        if(worldIn.getBlockState(placepos) == Blocks.AIR.defaultBlockState()){
+                        if(worldIn.getBlockState(placepos) == Blocks.AIR.defaultBlockState() && worldIn.getFluidState(placepos).isEmpty()){
                             worldIn.playSound((PlayerEntity)null, placepos.getX(), placepos.getY(), placepos.getZ(), placeSound, SoundCategory.BLOCKS, 1f, 1f);
                             worldIn.setBlockAndUpdate(placepos, copperCan.defaultBlockState());
                             consumeItemIfIsNotCreative(playerEntity, usedItem);
+                        }else{
+                            placepos = null;
                         }
                     }
 
                     if(placepos != null){
                         TileEntity copperCanTe = worldIn.getBlockEntity(placepos);
-                        CompoundNBT nbt = copperCanTe.getTileData();
-                        Fluid fluid = CopperCanItem.getFluid(usedItem);
-                        String string = ((ResourceLocation) Objects.requireNonNull(fluid.getRegistryName())).toString();
-                        nbt.putString("ContainedFluid", string);
+                        if(copperCanTe != null){
+                            CompoundNBT nbt = copperCanTe.getTileData();
+                            Fluid fluid = CopperCanItem.getFluid(usedItem);
+                            String string = ((ResourceLocation) Objects.requireNonNull(fluid.getRegistryName())).toString();
+                            nbt.putString("ContainedFluid", string);
+                        }
                     }
 
 

@@ -4,10 +4,13 @@ import multiteam.multicore_lib.setup.utilities.ItemGroupTool;
 import multiteam.rethinkers.main.Registration;
 import multiteam.rethinkers.main.blocks.CopperCanFluidRenderer;
 import multiteam.rethinkers.main.blocks.ModBlocks;
+import multiteam.rethinkers.main.blocks.ModFluids;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -43,6 +46,7 @@ public class ReThinkersConstruct
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onTextureStitch);
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -57,7 +61,18 @@ public class ReThinkersConstruct
 
         RenderTypeLookup.setRenderLayer(ModBlocks.COPPER_CAN_BLOCK.get(), RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(ModBlocks.ESSENCE_BERRY_BUSH.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(ModFluids.LIQUID_ESSENCE.get(), RenderType.translucent());
+
         CopperCanFluidRenderer.register();
+
+    }
+
+
+    public void onTextureStitch(TextureStitchEvent.Pre event){
+        if(!event.getMap().location().equals(AtlasTexture.LOCATION_BLOCKS)){
+            return;
+        }
+        event.addSprite(ModFluids.LIQUID_ESSENCE_STILL);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {
