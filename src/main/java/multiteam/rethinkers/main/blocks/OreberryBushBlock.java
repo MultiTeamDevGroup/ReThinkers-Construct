@@ -3,6 +3,7 @@ package multiteam.rethinkers.main.blocks;
 import multiteam.rethinkers.main.items.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.IntegerProperty;
@@ -13,6 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
@@ -26,15 +28,10 @@ public class OreberryBushBlock extends BushBlock implements IGrowable {
     private static final VoxelShape SHAPE_STAGE_MEDIUM = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
     private static final VoxelShape SHAPE_STAGE_MATURE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
     private static final VoxelShape SHAPE_ALMOSTFULL = Block.box(1.0D, 1.0D, 1.0D, 15.0D, 15.0D, 15.0D);
-    DamageSource BERRY_DAMAGE_SOURCE = new DamageSource("oreberry");
 
     public OreberryBushBlock(AbstractBlock.Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)));
-    }
-
-    public ItemStack getCloneItemStack(IBlockReader iBlockReader, BlockPos pos, BlockState state) {
-        return getBerry(iBlockReader, pos);
     }
 
     @Override
@@ -140,6 +137,7 @@ public class OreberryBushBlock extends BushBlock implements IGrowable {
 
     @Override
     public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entity) {
+        DamageSource BERRY_DAMAGE_SOURCE = new DamageSource("oreberry." + getBerry(worldIn,pos).getItem().toString());
         entity.hurt(BERRY_DAMAGE_SOURCE, 1.0F);
     }
 

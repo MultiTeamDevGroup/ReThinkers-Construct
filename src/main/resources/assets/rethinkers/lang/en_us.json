@@ -14,5 +14,6 @@
   "tooltip.rethinkers.essence_berry_item": "Tastes Like Creeper",
 
   "MOD MISC": "MISC",
-  "itemGroup.rethinkers_general_tab": "ReThinkers' Construct"
+  "itemGroup.rethinkers_general_tab": "ReThinkers' Construct",
+  "death.attack.oreberry.essence_berry": "Poked to death by Essence Berry Bush"
 }
