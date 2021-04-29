@@ -19,6 +19,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 import java.util.Random;
 
@@ -42,7 +43,9 @@ public class OreberryBushBlock extends BushBlock implements IGrowable {
             return true;
         }else if(state.is(Blocks.COBBLESTONE) || state.is(Blocks.MOSSY_COBBLESTONE)){
             return true;
-        }else{
+        }else if(blockReader.getBlockState(pos).getBlock().asItem() == TinkerSmeltery.searedBrick.get() || blockReader.getBlockState(pos).getBlock().asItem().getClass() == TinkerSmeltery.searedBrick.get().getClass()){
+            return true;
+        } else{
             return false;
         }
         // this does NOT work: return state.getBlock().getTags() == Tags.Blocks.STONE || state.getBlock().getTags() == Tags.Blocks.COBBLESTONE  || state.is(Blocks.STONE_BRICKS);
