@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "rethinkers:block/aluminium_berrybush_stage0"
+    },
+    "age=1": {
+      "model": "rethinkers:block/aluminium_berrybush_stage1"
+    },
+    "age=2": {
+      "model": "rethinkers:block/aluminium_berrybush_stage2"
+    },
+    "age=3": {
+      "model": "rethinkers:block/aluminium_berrybush_stage3"
+    }
+  }
+}

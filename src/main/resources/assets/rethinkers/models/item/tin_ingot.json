@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "rethinkers:item/metal/tin_ingot"
+    }
+}

@@ -12,10 +12,12 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import slimeknights.mantle.registration.deferred.FluidDeferredRegister;
+import slimeknights.tconstruct.common.registration.BlockDeferredRegisterExtension;
 
 public class Registration {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ReThinkersConstruct.MOD_ID);
+    public static final BlockDeferredRegisterExtension TICON_BLOCKS = new BlockDeferredRegisterExtension(ReThinkersConstruct.MOD_ID);
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, ReThinkersConstruct.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ReThinkersConstruct.MOD_ID);
     public static final FluidDeferredRegister FLUIDS = new FluidDeferredRegister(ReThinkersConstruct.MOD_ID);
@@ -24,6 +26,7 @@ public class Registration {
         IEventBus modeEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         BLOCKS.register(modeEventBus);
+        TICON_BLOCKS.register(modeEventBus);
         TILE_ENTITY_TYPES.register(modeEventBus);
         ITEMS.register(modeEventBus);
         FLUIDS.register(modeEventBus);

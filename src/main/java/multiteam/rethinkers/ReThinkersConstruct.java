@@ -61,6 +61,11 @@ public class ReThinkersConstruct
 
         RenderTypeLookup.setRenderLayer(ModBlocks.COPPER_CAN_BLOCK.get(), RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(ModBlocks.ESSENCE_BERRY_BUSH.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(ModBlocks.IRON_OREBERRY_BUSH.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(ModBlocks.GOLD_OREBERRY_BUSH.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(ModBlocks.COPPER_OREBERRY_BUSH.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(ModBlocks.TIN_OREBERRY_BUSH.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(ModBlocks.ALUMINIUM_OREBERRY_BUSH.get(), RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(ModFluids.LIQUID_ESSENCE.get(), RenderType.translucent());
 
         CopperCanFluidRenderer.register();

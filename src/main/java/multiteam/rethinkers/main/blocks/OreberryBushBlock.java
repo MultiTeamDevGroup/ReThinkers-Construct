@@ -110,16 +110,32 @@ public class OreberryBushBlock extends BushBlock implements IGrowable {
 
     public static ItemStack getBerry(World worldIn, BlockPos pos){
         Block bushBlock = worldIn.getBlockState(pos).getBlock();
-        if (bushBlock == ModBlocks.ESSENCE_BERRY_BUSH.get()){
-            return new ItemStack(ModItems.ESSENCE_BERRY.get());
-        }
-        return new ItemStack(bushBlock.asItem());
+        return compareBerrys(bushBlock);
     }
 
     public static ItemStack getBerry(IBlockReader worldIn, BlockPos pos){
         Block bushBlock = worldIn.getBlockState(pos).getBlock();
+        return compareBerrys(bushBlock);
+    }
+
+    public static ItemStack compareBerrys(Block bushBlock){
         if (bushBlock == ModBlocks.ESSENCE_BERRY_BUSH.get()){
             return new ItemStack(ModItems.ESSENCE_BERRY.get());
+
+        }else if(bushBlock == ModBlocks.IRON_OREBERRY_BUSH.get()){
+            return new ItemStack(ModItems.IRON_OREBERRY.get());
+
+        }else if(bushBlock == ModBlocks.GOLD_OREBERRY_BUSH.get()){
+            return new ItemStack(ModItems.GOLD_OREBERRY.get());
+
+        }else if(bushBlock == ModBlocks.COPPER_OREBERRY_BUSH.get()){
+            return new ItemStack(ModItems.COPPER_OREBERRY.get());
+
+        }else if(bushBlock == ModBlocks.TIN_OREBERRY_BUSH.get()){
+            return new ItemStack(ModItems.TIN_OREBERRY.get());
+
+        }else if(bushBlock == ModBlocks.ALUMINIUM_OREBERRY_BUSH.get()){
+            return new ItemStack(ModItems.ALUMINIUM_OREBERRY.get());
         }
         return new ItemStack(bushBlock.asItem());
     }

@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "rethinkers:block/metal/aluminium_block"
+    }
+}
