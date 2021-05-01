@@ -2,9 +2,11 @@ package multiteam.rethinkers.main.blocks;
 
 import multiteam.rethinkers.ReThinkersConstruct;
 import multiteam.rethinkers.main.Registration;
+import multiteam.rethinkers.main.blocks.copper_can.CopperCanBlock;
+import multiteam.rethinkers.main.blocks.copper_can.CopperCanTileEntity;
+import multiteam.rethinkers.main.items.ModItems;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -16,7 +18,6 @@ import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import slimeknights.mantle.item.BlockTooltipItem;
 import slimeknights.tconstruct.common.registration.MetalItemObject;
-import slimeknights.tconstruct.shared.TinkerMaterials;
 
 import javax.annotation.Nullable;
 import java.util.function.Function;
@@ -54,7 +55,9 @@ public class ModBlocks {
 
 
 
-    public static void register(){}
+    public static void register(){
+
+    }
 
     private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> block){
         return Registration.BLOCKS.register(name, block);

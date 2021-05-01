@@ -2,7 +2,7 @@ package multiteam.rethinkers;
 
 import multiteam.multicore_lib.setup.utilities.ItemGroupTool;
 import multiteam.rethinkers.main.Registration;
-import multiteam.rethinkers.main.blocks.CopperCanFluidRenderer;
+import multiteam.rethinkers.main.blocks.copper_can.CopperCanFluidRenderer;
 import multiteam.rethinkers.main.blocks.ModBlocks;
 import multiteam.rethinkers.main.blocks.ModFluids;
 import net.minecraft.block.Block;

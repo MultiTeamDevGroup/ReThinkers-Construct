@@ -1,5 +1,6 @@
-package multiteam.rethinkers.main.blocks;
+package multiteam.rethinkers.main.blocks.copper_can;
 
+import multiteam.rethinkers.main.blocks.ModBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;

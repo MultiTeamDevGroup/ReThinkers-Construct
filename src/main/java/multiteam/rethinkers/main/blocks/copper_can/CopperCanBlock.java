@@ -1,31 +1,23 @@
-package multiteam.rethinkers.main.blocks;
+package multiteam.rethinkers.main.blocks.copper_can;
 
+import multiteam.rethinkers.main.blocks.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.particle.ParticleManager;
-import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.item.ItemStack;
-import net.minecraft.loot.LootContext;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import net.minecraftforge.registries.ForgeRegistries;
 import slimeknights.tconstruct.library.tinkering.IndestructibleEntityItem;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.smeltery.item.CopperCanItem;
 
 import javax.annotation.Nullable;
-import java.util.List;
-import java.util.Objects;
 
 
 public class CopperCanBlock extends Block {

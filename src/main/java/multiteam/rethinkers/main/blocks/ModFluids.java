@@ -16,6 +16,8 @@ public class ModFluids {
     public static final ResourceLocation LIQUID_ESSENCE_STILL = new ResourceLocation(ReThinkersConstruct.MOD_ID, "block/fluid/liquid_essence");
 
     public static final FluidObject<ForgeFlowingFluid> LIQUID_ESSENCE = Registration.FLUIDS.register("liquid_essence", coolBuilder(LIQUID_ESSENCE_STILL, FluidIcons.LIQUID_FLOWING).color(-9325008).density(1200).viscosity(1200).temperature(336), Material.WATER, 0);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_ALUMINIUM = Registration.FLUIDS.register("molten_aluminium", moltenBuilder().color(5924003).temperature(800), Material.LAVA, 11);
+    public static final FluidObject<ForgeFlowingFluid> MOLTEN_TIN = Registration.FLUIDS.register("molten_tin", moltenBuilder().color(9263209).temperature(500), Material.LAVA, 11);
 
 
     public static void register(){}

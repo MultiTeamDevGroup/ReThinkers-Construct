@@ -1,10 +1,11 @@
-package multiteam.rethinkers.main.blocks;
+package multiteam.rethinkers.main.blocks.copper_can;
 
 import multiteam.rethinkers.ReThinkersConstruct;
 import multiteam.multicore_lib.setup.utilities.MathF;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
+import multiteam.rethinkers.main.blocks.ModBlocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.texture.AtlasTexture;
