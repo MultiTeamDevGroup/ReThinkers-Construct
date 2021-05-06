@@ -4,7 +4,6 @@ import multiteam.rethinkers.ReThinkersConstruct;
 import multiteam.rethinkers.main.Registration;
 import multiteam.rethinkers.main.blocks.copper_can.CopperCanBlock;
 import multiteam.rethinkers.main.blocks.copper_can.CopperCanTileEntity;
-import multiteam.rethinkers.main.items.ModItems;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

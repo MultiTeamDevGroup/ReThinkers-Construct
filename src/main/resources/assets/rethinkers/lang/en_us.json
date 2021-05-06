@@ -31,10 +31,10 @@
 
   "MOD MISC": "MISC",
   "itemGroup.rethinkers_general_tab": "ReThinkers' Construct",
-  "death.attack.oreberry.essence_berry": "Poked to death by Essence Berry Bush"
-  "death.attack.oreberry.iron_berry": "Poked to death by Iron Oreberry Bush"
-  "death.attack.oreberry.gold_berry": "Poked to death by Gold Oreberry Bush"
-  "death.attack.oreberry.copper_berry": "Poked to death by Copper Oreberry Bush"
-  "death.attack.oreberry.tin_berry": "Poked to death by Tin Oreberry Bush"
+  "death.attack.oreberry.essence_berry": "Poked to death by Essence Berry Bush",
+  "death.attack.oreberry.iron_berry": "Poked to death by Iron Oreberry Bush",
+  "death.attack.oreberry.gold_berry": "Poked to death by Gold Oreberry Bush",
+  "death.attack.oreberry.copper_berry": "Poked to death by Copper Oreberry Bush",
+  "death.attack.oreberry.tin_berry": "Poked to death by Tin Oreberry Bush",
   "death.attack.oreberry.aluminium_berry": "Poked to death by Aluminium Oreberry Bush"
 }

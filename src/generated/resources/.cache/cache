@@ -13,3 +13,15 @@ e976a5ed740c08718db9d2558365774325938a9a assets/rethinkers/models/item/iron_oreb
 055a68448bdd1baadcc0c93d56489a52f8f14a6c assets/rethinkers/models/item/silky_cloth_block.json
 1079ab827bb585d9742cc4b9b6c3cad8b2146420 assets/rethinkers/models/item/tin_oreberry.json
 3c0a242a62c75a41ee11530b0f3c5f0c06fb17af assets/rethinkers/models/item/tin_oreberry_bush.json
+d8b06f926c0f9aa5a5ab9f05834196838104e9d1 data/forge/tags/blocks/storage_blocks.json
+f706618b1973e844ca8a79a7891b50af932b9473 data/forge/tags/blocks/storage_blocks/aluminium.json
+a9419483be40dfbb5741cc9c3e7e763dd8b19371 data/forge/tags/blocks/storage_blocks/tin.json
+0347dcbe4103eb15198453fab00ca4cb2d8d7108 data/forge/tags/items/ingots.json
+5026d31a02efd7dc3fa89b65925a3379b7f4b972 data/forge/tags/items/ingots/aluminium.json
+9ec54c95c3ee20b84e9663da402cb80eec188d4f data/forge/tags/items/ingots/tin.json
+aabce7cd65abadf25196ca9e68f4b1bb1905beed data/forge/tags/items/nuggets.json
+6a71bf66aff4f71a39cb338014045627481513f2 data/forge/tags/items/nuggets/aluminium.json
+2556cb0480789dc8b013e06647092b14048f0b00 data/forge/tags/items/nuggets/tin.json
+f706618b1973e844ca8a79a7891b50af932b9473 data/forge/tags/items/storage_blocks/aluminium.json
+a9419483be40dfbb5741cc9c3e7e763dd8b19371 data/forge/tags/items/storage_blocks/tin.json
+d8b06f926c0f9aa5a5ab9f05834196838104e9d1 data/minecraft/tags/blocks/beacon_base_blocks.json

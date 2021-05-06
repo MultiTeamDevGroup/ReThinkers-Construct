@@ -103,7 +103,7 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.1.12'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.1.16'
 
     //Dev-Env only
     compileOnly fg.deobf("mezz.jei:jei-1.16.5:7.6.4.88:api")
