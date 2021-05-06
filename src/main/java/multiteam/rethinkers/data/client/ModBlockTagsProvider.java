@@ -46,8 +46,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     }
 
     private void addCommon() {
-        this.addMetalTags(ModBlocks.TIN);
-        this.addMetalTags(ModBlocks.ALUMINIUM);
+        //this.addMetalTags(ModBlocks.TIN);
+        //this.addMetalTags(ModBlocks.ALUMINIUM);
     }
 
     private void addTools() {

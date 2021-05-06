@@ -48,8 +48,8 @@ public class ModBlocks {
 
 
     //Metals
-    public static final MetalItemObject TIN = Registration.TICON_BLOCKS.registerMetal("tin", GENERIC_METAL_BLOCK, GENERAL_TOOLTIP_BLOCK_ITEM, GENERAL_PROPS);
-    public static final MetalItemObject ALUMINIUM = Registration.TICON_BLOCKS.registerMetal("aluminium", GENERIC_METAL_BLOCK, GENERAL_TOOLTIP_BLOCK_ITEM, GENERAL_PROPS);
+    //public static final MetalItemObject TIN = Registration.TICON_BLOCKS.registerMetal("tin", GENERIC_METAL_BLOCK, GENERAL_TOOLTIP_BLOCK_ITEM, GENERAL_PROPS);
+    //public static final MetalItemObject ALUMINIUM = Registration.TICON_BLOCKS.registerMetal("aluminium", GENERIC_METAL_BLOCK, GENERAL_TOOLTIP_BLOCK_ITEM, GENERAL_PROPS);
 
 
 
