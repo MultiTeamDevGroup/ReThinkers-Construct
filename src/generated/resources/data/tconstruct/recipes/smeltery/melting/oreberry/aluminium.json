@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "rethinkers:aluminium_oreberry"
+  },
+  "result": {
+    "fluid": "tconstruct:molten_aluminum",
+    "amount": 16
+  },
+  "temperature": 425,
+  "time": 71
+}

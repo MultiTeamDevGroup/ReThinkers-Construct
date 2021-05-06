@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "rethinkers:iron_oreberry"
+  },
+  "result": {
+    "fluid": "tconstruct:molten_iron",
+    "amount": 16
+  },
+  "temperature": 800,
+  "time": 90
+}

@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:rods/aluminium",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:rods/aluminium"
+  },
+  "result": {
+    "fluid": "tconstruct:molten_aluminum",
+    "amount": 72
+  },
+  "temperature": 425,
+  "time": 9
+}

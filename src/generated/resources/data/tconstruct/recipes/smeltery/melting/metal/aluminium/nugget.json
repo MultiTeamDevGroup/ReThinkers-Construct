@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "forge:nuggets/aluminium"
+  },
+  "result": {
+    "fluid": "tconstruct:molten_aluminum",
+    "amount": 16
+  },
+  "temperature": 425,
+  "time": 16
+}

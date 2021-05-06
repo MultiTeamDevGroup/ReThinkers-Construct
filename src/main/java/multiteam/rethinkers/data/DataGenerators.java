@@ -1,10 +1,7 @@
 package multiteam.rethinkers.data;
 
 import multiteam.rethinkers.ReThinkersConstruct;
-import multiteam.rethinkers.data.client.ModBlockStateProvider;
-import multiteam.rethinkers.data.client.ModBlockTagsProvider;
-import multiteam.rethinkers.data.client.ModItemModelProvider;
-import multiteam.rethinkers.data.client.ModItemTagsProvider;
+import multiteam.rethinkers.data.client.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,5 +23,6 @@ public class DataGenerators {
         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
         gen.addProvider(blockTags);
         gen.addProvider(new ModItemTagsProvider(gen, blockTags, existingFileHelper));
+        gen.addProvider(new ModSmelteryRecipeProvider(gen));
     }
 }

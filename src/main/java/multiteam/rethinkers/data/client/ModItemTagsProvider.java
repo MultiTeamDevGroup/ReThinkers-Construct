@@ -29,8 +29,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
 
     private void addCommon(){
-        //this.addMetalTags(ModBlocks.TIN);
-        //this.addMetalTags(ModBlocks.ALUMINIUM);
+        this.addMetalTags(ModBlocks.TIN);
+        this.addMetalTags(ModBlocks.ALUMINIUM);
     }
 
     public String getName() {

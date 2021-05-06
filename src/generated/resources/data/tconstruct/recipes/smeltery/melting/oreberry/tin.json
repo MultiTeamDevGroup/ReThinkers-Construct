@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "rethinkers:tin_oreberry"
+  },
+  "result": {
+    "fluid": "tconstruct:molten_tin",
+    "amount": 16
+  },
+  "temperature": 225,
+  "time": 59
+}
