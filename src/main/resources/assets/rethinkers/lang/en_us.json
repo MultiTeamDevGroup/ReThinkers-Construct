@@ -9,6 +9,7 @@
   "block.rethinkers.aluminium_oreberry_bush": "Aluminium Oreberry Bush",
   "block.rethinkers.tin_block":"Block of Tin",
   "block.rethinkers.aluminium_block":"Block of Aluminium",
+  "block.rethinkers.alumite_block":"Block of Alumite",
 
   "MOD FLUIDS": "FLUIDS",
   "fluid.rethinkers.liquid_essence": "Liquid Essence",
@@ -25,6 +26,9 @@
   "item.rethinkers.tin_nugget":"Tin Nugget",
   "item.rethinkers.aluminium_ingot":"Aluminium Ingot",
   "item.rethinkers.aluminium_nugget":"Aluminium Nugget",
+  "item.rethinkers.alumite_ingot":"Alumite Ingot",
+  "item.rethinkers.alumite_nugget":"Alumite Nugget",
+  "item.rethinkers.molten_alumite_bucket": "Molten Alumite Bucket",
 
   "MOD TOOLTIPS": "TOOLTIPS",
   "tooltip.rethinkers.essence_berry_item": "Tastes Like Creeper",

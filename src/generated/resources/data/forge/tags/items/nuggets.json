@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "#forge:nuggets/tin",
-    "#forge:nuggets/aluminium"
+    "#forge:nuggets/aluminium",
+    "#forge:nuggets/alumite"
   ]
 }

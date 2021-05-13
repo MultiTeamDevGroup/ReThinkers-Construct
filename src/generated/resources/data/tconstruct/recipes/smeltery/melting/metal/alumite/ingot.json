@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "forge:ingots/alumite"
+  },
+  "result": {
+    "fluid": "rethinkers:molten_alumite",
+    "amount": 144
+  },
+  "temperature": 900,
+  "time": 63
+}

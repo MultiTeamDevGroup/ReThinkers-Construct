@@ -29,6 +29,7 @@ public class ModBlocks {
     public static final AbstractBlock.Properties GENERIC_METAL_BLOCK = builder(Material.METAL, ToolType.PICKAXE, SoundType.METAL).requiresCorrectToolForDrops().strength(5.0F);
     protected static final net.minecraft.item.Item.Properties GENERAL_PROPS = (new net.minecraft.item.Item.Properties()).tab(ReThinkersConstruct.RETHINKERS_GENERAL_TAB);
     public static final Function<Block, ? extends BlockItem> GENERAL_TOOLTIP_BLOCK_ITEM= (b) -> { return new BlockTooltipItem(b, GENERAL_PROPS); };
+    private static final net.minecraft.block.AbstractBlock.Properties OVERWORLD_ORE = builder(Material.STONE, ToolType.PICKAXE, SoundType.STONE).requiresCorrectToolForDrops().harvestLevel(1).strength(3.0F, 3.0F);
 
 
     //Utility
@@ -50,6 +51,7 @@ public class ModBlocks {
     //Metals
     public static final MetalItemObject TIN = Registration.TICON_BLOCKS.registerMetal("tin", GENERIC_METAL_BLOCK, GENERAL_TOOLTIP_BLOCK_ITEM, GENERAL_PROPS);
     public static final MetalItemObject ALUMINIUM = Registration.TICON_BLOCKS.registerMetal("aluminium", GENERIC_METAL_BLOCK, GENERAL_TOOLTIP_BLOCK_ITEM, GENERAL_PROPS);
+    public static final MetalItemObject ALUMITE = Registration.TICON_BLOCKS.registerMetal("alumite", GENERIC_METAL_BLOCK, GENERAL_TOOLTIP_BLOCK_ITEM, GENERAL_PROPS);
 
 
 

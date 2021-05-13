@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "forge:storage_blocks/alumite"
+  },
+  "result": {
+    "fluid": "rethinkers:molten_alumite",
+    "amount": 1296
+  },
+  "temperature": 900,
+  "time": 190
+}

@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "forge:nuggets/alumite"
+  },
+  "result": {
+    "fluid": "rethinkers:molten_alumite",
+    "amount": 16
+  },
+  "temperature": 900,
+  "time": 21
+}

@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:dusts/alumite",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:dusts/alumite"
+  },
+  "result": {
+    "fluid": "rethinkers:molten_alumite",
+    "amount": 144
+  },
+  "temperature": 900,
+  "time": 47
+}

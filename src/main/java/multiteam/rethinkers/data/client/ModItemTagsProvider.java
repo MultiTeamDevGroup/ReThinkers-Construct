@@ -31,10 +31,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     private void addCommon(){
         this.addMetalTags(ModBlocks.TIN);
         this.addMetalTags(ModBlocks.ALUMINIUM);
+        this.addMetalTags(ModBlocks.ALUMITE);
     }
 
     public String getName() {
-        return "Tinkers Construct Item Tags";
+        return "ReThinkers Construct Item Tags";
     }
 
     private void addMetalTags(MetalItemObject metal) {

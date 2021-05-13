@@ -77,6 +77,7 @@ public class ModSmelteryRecipeProvider extends SmelteryRecipeProvider {
         MeltingRecipeBuilder.melting(Ingredient.of(ModItems.COPPER_OREBERRY.get()), TinkerFluids.moltenCopper.get(), 16, 1.5F).build(consumer, location(folder + "oreberry/copper"));
         MeltingRecipeBuilder.melting(Ingredient.of(ModItems.TIN_OREBERRY.get()), TinkerFluids.moltenTin.get(), 16, 1.5F).build(consumer, location(folder + "oreberry/tin"));
         MeltingRecipeBuilder.melting(Ingredient.of(ModItems.ALUMINIUM_OREBERRY.get()), TinkerFluids.moltenAluminum.get(), 16, 1.5F).build(consumer, location(folder + "oreberry/aluminium"));
+        this.addMetalMelting(consumer, ModFluids.MOLTEN_ALUMITE.get(), "alumite", false, metalFolder, false);
 
     }
 
